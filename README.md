@@ -8,7 +8,7 @@ Initial setup of the project is here in this [commit](https://github.com/Amitlpu
 I fixed 5 bugs to make this project work as expected. My contribution is present is in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/bd548102c81587f0a255883ab9460f85967a467a)
 
 #### optimization
-Optimized code is here in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/a95c36fdc8f395676dbba0017fe9e4955f9d40cb)
+Optimized code is here in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/c85ece9cd5e2633cc08e1671b5cb50ac5355cdb5)
 
 
 
