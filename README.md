@@ -1,6 +1,10 @@
 # SteelEye
 ## Frontend Engineer Assignment
+#### Problem statement
+initial Problem statement of this assignment is in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/cbe76565ed9d3dca70dd69d0e5de20a6126deb7c) 
 
+#### Solution 
+I fixed 5 bugs to make this project work as aspects. My contribution is present is the this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/bd548102c81587f0a255883ab9460f85967a467a)
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,4 +70,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
