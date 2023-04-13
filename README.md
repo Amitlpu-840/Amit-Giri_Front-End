@@ -1,11 +1,16 @@
 # SteelEye
 ## Frontend Engineer Assignment
 #### Problem statement
-initial Problem statement of this assignment is in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/cbe76565ed9d3dca70dd69d0e5de20a6126deb7c) 
+Problem statement of this assignment is to find and fix errors and warnings. 
+Initial setup of the project is here in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/cbe76565ed9d3dca70dd69d0e5de20a6126deb7c) 
 
 #### Solution 
-I fixed 5 bugs to make this project work as aspects. My contribution is present is the this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/bd548102c81587f0a255883ab9460f85967a467a)
-## Available Scripts
+I fixed 5 bugs to make this project work as expected. My contribution is present is in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/bd548102c81587f0a255883ab9460f85967a467a)
+
+#### optimization
+Optimized code is here in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/a8ea41631241777ea9067535fdcfdc4d23dfe0bb)
+
+
 
 In the project directory, you can run:
 

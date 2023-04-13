@@ -5,13 +5,16 @@ import PropTypes from 'prop-types';
 const WrappedSingleListItem = ({
   index,
   isSelected,
-  onClickHandler,
+  onClick,
   text,
 }) => {
+  const handleClick = () => {
+    onClick(index);
+  };
   return (
     <li
-      style={{ backgroundColor: isSelected ? 'green' : 'red'}}
-      onClick={ () => onClickHandler(index)} //fixed arrow function
+      style={{ backgroundColor: isSelected ? 'green' : 'red', cursor:'pointer' }} //added pointer
+      onClick={handleClick} // use function reference instead of arrow function
     >
       {text}
     </li>
@@ -21,7 +24,7 @@ const WrappedSingleListItem = ({
 WrappedSingleListItem.propTypes = {
   index: PropTypes.number,
   isSelected: PropTypes.bool,
-  onClickHandler: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
 };
 
@@ -31,7 +34,7 @@ const SingleListItem = memo(WrappedSingleListItem);
 const WrappedListComponent = ({
   items,
 }) => {
-  const [selectedIndex, setSelectedIndex] = useState(); //here the current state and function are corrected
+  const [selectedIndex, setSelectedIndex] = useState(null); //here the current state and function are corrected
 
   useEffect(() => {
     setSelectedIndex(null);
@@ -45,10 +48,10 @@ const WrappedListComponent = ({
     <ul style={{ textAlign: 'left' }}>
       {items.map((item, index) => (
         <SingleListItem
-          onClickHandler={() => handleClick(index)}
+          onClick={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex ===index } // bug fix 
+          isSelected={selectedIndex === index } // bug fix 
           key={index} // added key to pass unique child
         />
       ))}
@@ -62,8 +65,9 @@ WrappedListComponent.propTypes = {
   })),
 };
 
+//adding some default props
 WrappedListComponent.defaultProps = {
-  items: null,
+  items: [{text:"Amit Giri"},{text:"12008090"}] 
 };
 
 const List = memo(WrappedListComponent);
