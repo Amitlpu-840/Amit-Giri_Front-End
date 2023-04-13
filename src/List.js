@@ -11,7 +11,7 @@ const WrappedSingleListItem = ({
   return (
     <li
       style={{ backgroundColor: isSelected ? 'green' : 'red'}}
-      onClick={onClickHandler(index)}
+      onClick={ () => onClickHandler(index)} //fixed arrow function
     >
       {text}
     </li>
@@ -31,7 +31,7 @@ const SingleListItem = memo(WrappedSingleListItem);
 const WrappedListComponent = ({
   items,
 }) => {
-  const [setSelectedIndex, selectedIndex] = useState();
+  const [selectedIndex, setSelectedIndex] = useState(); //here the current state and function are corrected
 
   useEffect(() => {
     setSelectedIndex(null);
@@ -48,15 +48,16 @@ const WrappedListComponent = ({
           onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex}
+          isSelected={selectedIndex ===index } // bug fix 
+          key={index} // added key to pass unique child
         />
       ))}
     </ul>
   )
 };
-
+// array changed to arrayOf and shapeOf changed to shape
 WrappedListComponent.propTypes = {
-  items: PropTypes.array(PropTypes.shapeOf({
+  items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
   })),
 };
