@@ -5,6 +5,10 @@ Problem statement of this assignment is to find and fix errors and warnings.
 Initial setup of the project is here in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/cbe76565ed9d3dca70dd69d0e5de20a6126deb7c) 
 
 #### Solution 
+complete solution is live [here](https://steeleye-frontend-byamitgiri.onrender.com/)
+[PDF solution](https://drive.google.com/file/d/1Ez3E-vkIQuIY0kPtVFnWJKTzzvaaCXFf/view?usp=sharing)
+
+
 I fixed 5 bugs to make this project work as expected. My contribution is present is in this [commit](https://github.com/Amitlpu-840/steeleye-assignment/commit/bd548102c81587f0a255883ab9460f85967a467a)
 
 #### optimization
