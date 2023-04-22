@@ -16,7 +16,7 @@ Optimized code is here in this [commit](https://github.com/Amitlpu-840/steeleye-
 ## To run project locally
 
 fork this repo\
-in terminal, `git clone https://github.com/Amitlpu-840/steeleye-assignment.git`
+in terminal, run `git clone https://github.com/Amitlpu-840/Amit-Giri_Front-End.git`
 
 In the project directory, you can run: \
   `npm i` to download required packages\
