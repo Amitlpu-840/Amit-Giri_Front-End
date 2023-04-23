@@ -6,31 +6,42 @@ const SingleListItem = ({
   index,
   isSelected,
   onClick,
+  onRemove,
   text,
 }) => {
   const handleClick = () => {
     onClick(index);
   };
+  
+  const handleRemove = (event) => {
+    event.stopPropagation(); // Stop event propagation to prevent item selection
+    onRemove(index);
+  };
+  
   return (
-    <li
-      style={{ backgroundColor: isSelected ? 'green' : 'red', cursor:'pointer' }} //added pointer
+    <li className='main-list'
+      style={{backgroundColor: isSelected ? 'green' : 'red',}} //added pointer
       onClick={handleClick} // use function reference instead of arrow function
     >
-      {text}
+     <span> {text}</span>
+      <button className='btn-rm' onClick={handleRemove}>Remove</button>
     </li>
   );
 };
 
 SingleListItem.propTypes = {
-  index: PropTypes.number.isRequired,
-  isSelected: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
+  index: PropTypes.number,
+  isSelected: PropTypes.bool,
+  onClick: PropTypes.func,
+  onRemove: PropTypes.func,
+  text: PropTypes.string,
+}.isRequired;
 
 // List Component
-const List = memo(({ items }) => {
+const List = memo(({ items: initialItems }) => {
+  const [items, setItems] = useState(initialItems);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [newItemText, setNewItemText] = useState('');
 
   useEffect(() => {
     setSelectedIndex(null);
@@ -38,31 +49,55 @@ const List = memo(({ items }) => {
 
   const handleClick = (index) => setSelectedIndex(index);
 
+  const handleRemove = (index) => {
+    const newItems = items.filter((_, i) => i !== index);
+    setItems(newItems);
+    setSelectedIndex(null);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (newItemText.trim() === '') {
+      return;
+    }
+    const newItems = [...items, { text: newItemText }];
+    setItems(newItems);
+    setNewItemText('');
+  };
+
   return (
-    <ul style={{ textAlign: 'left' }}>
-      {items.map(({ text }, index) => (
-        <SingleListItem
-          onClick={() => handleClick(index)}
-          text={text}
-          index={index}
-          isSelected={selectedIndex === index } // bug fix 
-          key={index} // added key to pass unique child
-        />
-      ))}
-    </ul>
+    <div className="main-div">
+      <h1>Frontend List</h1>
+      <ul >
+        {items.map(({ text }, index) => (
+          <SingleListItem
+            onClick={() => handleClick(index)}
+            onRemove={handleRemove}
+            text={text}
+            index={index}
+            isSelected={selectedIndex === index } // bug fix 
+            key={index} // added key to pass unique child
+          />
+        ))}
+      </ul>
+      <form onSubmit={handleSubmit} >
+        <input  type="text" value={newItemText} onChange={(event) => setNewItemText(event.target.value)} />
+        <button type="submit">Add Item</button>
+      </form>
+    </div>
   );
 });
-// array changed to arrayOf and shapeOf changed to shape
+
 List.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
 };
 //adding some default props
 List.defaultProps = {
-  items: [{text:"Amit Giri"},{text:"12008090"}] 
+  items: [{text:"Amit Giri"},{text:"12008090"}, {text:"thisisag840@gmail.com"}] 
 };
 
 export default List;
